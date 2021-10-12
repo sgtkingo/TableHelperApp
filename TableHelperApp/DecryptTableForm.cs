@@ -23,10 +23,15 @@ namespace TableHelperApp
 
         private void DecryptTableForm_Load(object sender, EventArgs e)
         {
-            richTextBox_Data.TextChanged += RichBoxTextDecryptCheckEvent;
-
             Decryptor = new Decryptor();
             DecryptedProducts = null;
+
+            richTextBox_Data.TextChanged += TextDecryptCheckEvent;
+            rbtn_LineSplit.CheckedChanged += TextDecryptCheckEvent;
+            rbtn_TabSplit.CheckedChanged += TextDecryptCheckEvent;
+
+            //ENTER as default
+            rbtn_LineSplit.Checked = true;
         }
 
         private void ExportAndClose()
@@ -43,13 +48,33 @@ namespace TableHelperApp
             }
         }
 
-        private void RichBoxTextDecryptCheckEvent(object sender, EventArgs e)
+        private void DecryptText(string txt)
         {
-            var rtxt = (RichTextBox)sender;
-            //Clean highlight
-            rtxt.SelectAll();
-            rtxt.SelectionBackColor = Color.Empty;
+            if (rbtn_TabSplit.Checked)
+            {
+                DecryptedProducts = Decryptor.DectyptText(txt, Decryptor.SplitType.TAB);
+            }
+            if (rbtn_LineSplit.Checked)
+            {
+                DecryptedProducts = Decryptor.DectyptText(txt, Decryptor.SplitType.ENTER);
+            }
+        }
 
+        private void TryDetect(string txt)
+        {
+            l_detect.Text = $"Detekováno: {Decryptor.GetSplitType(txt)}";
+            DecryptText(txt);
+        }
+
+        private void TextDecryptCheckEvent(object sender, EventArgs e)
+        {
+            Console.WriteLine($"sender={sender}, e={e}");
+            var rtxt = richTextBox_Data;
+            int lastPosition = rtxt.SelectionStart;
+            //Detection
+            TryDetect(rtxt.Text);
+            
+            //Show errors
             if (DecryptedProducts == null)
             {
                 rtxt.BackColor = Color.Red;
@@ -63,25 +88,33 @@ namespace TableHelperApp
             //Try to highlight errors
             try
             {
-                foreach (var errorLineNumber in Decryptor.ErrorLines)
+                for (int i = 0; i < rtxt.Lines.Length; i++)
                 {
-                    var start = rtxt.GetFirstCharIndexFromLine(errorLineNumber);
-                    var end = rtxt.Text.IndexOf('\n');
+                    var start = rtxt.GetFirstCharIndexFromLine(i);
+                    var end = rtxt.Text.IndexOf('\n', start);
+                    if (end == -1)
+                    {
+                        end = rtxt.Text.Length;
+                    }
                     rtxt.Select(start, end);
-                    rtxt.SelectionBackColor = Color.Red;
+
+                    if (Decryptor.ErrorLines.Contains(i))
+                    {
+                        rtxt.SelectionBackColor = Color.Red;
+                    }
+                    else
+                    {
+                        //Clean highlight
+                        rtxt.SelectionBackColor = Color.Green;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"\t(!) {this}: Problem: {ex.Message} | {ex.Source} ");
             }
-            rtxt.SelectionStart = rtxt.Text.Length;
-        }
-
-        private void richTextBox_Data_TextChanged(object sender, EventArgs e)
-        {
-            string txt = richTextBox_Data.Text;
-            DecryptedProducts = Decryptor.DectyptText(txt);
+            //Reset selection
+            rtxt.Select(lastPosition, 0);
         }
 
         private void btn_OK_Click(object sender, EventArgs e)
@@ -95,6 +128,40 @@ namespace TableHelperApp
                 else return;
             }
             else ExportAndClose();
+        }
+
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(richTextBox_Data.SelectedText)) return;
+
+            Clipboard.SetText(richTextBox_Data.SelectedText);
+        }
+
+        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox_Data.Text += Clipboard.GetText();
+        }
+
+        private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox_Data.SelectAll();
+        }
+
+        private void rbtn_TabSplit_CheckedChanged(object sender, EventArgs e)
+        {
+            DecryptText(richTextBox_Data.Text);
+        }
+
+        private void rbtn_LineSplit_CheckedChanged(object sender, EventArgs e)
+        {
+            DecryptText(richTextBox_Data.Text);
+        }
+
+        private void DecryptTableForm_Resize(object sender, EventArgs e)
+        {
+            var newX = this.Width - (gbox_SplitType.Size.Width + 20);
+            var newY = 10;
+            gbox_SplitType.Location = new Point(newX, newY);
         }
     }
 }
