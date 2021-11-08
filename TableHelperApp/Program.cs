@@ -16,7 +16,15 @@ namespace TableHelperApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
+            Application.ThreadException += Application_ThreadException;
+
             Application.Run(new MainForm());
+        }
+
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs ex)
+        {
+            Console.WriteLine($"\t(!!!) Unhalted problem: {ex.Exception.Source} | {ex.Exception.Message} ");
         }
     }
 }

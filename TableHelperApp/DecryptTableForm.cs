@@ -68,7 +68,7 @@ namespace TableHelperApp
 
         private void TextDecryptCheckEvent(object sender, EventArgs e)
         {
-            Console.WriteLine($"sender={sender}, e={e}");
+            //Console.WriteLine($"sender={sender}, e={e}");
             var rtxt = richTextBox_Data;
             int lastPosition = rtxt.SelectionStart;
             //Detection

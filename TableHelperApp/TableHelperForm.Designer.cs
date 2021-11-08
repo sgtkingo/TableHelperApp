@@ -34,7 +34,6 @@ namespace TableHelperApp
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btn_Help = new System.Windows.Forms.Button();
             this.dataGridView_ProductAttributes = new System.Windows.Forms.DataGridView();
             this.l_productAttrib = new System.Windows.Forms.Label();
             this.l_producDesr = new System.Windows.Forms.Label();
@@ -46,27 +45,22 @@ namespace TableHelperApp
             this.btn_ReloadAC = new System.Windows.Forms.Button();
             this.gbox_AutoComplete = new System.Windows.Forms.GroupBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btn_Import = new System.Windows.Forms.Button();
+            this.mainMenu = new System.Windows.Forms.MenuStrip();
+            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topSecretToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Copy = new System.Windows.Forms.Button();
             this.btn_ClearAll = new System.Windows.Forms.Button();
             this.btn_WebBrowser = new System.Windows.Forms.Button();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btn_Import = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductAttributes)).BeginInit();
             this.gbox_AutoComplete.SuspendLayout();
+            this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_Help
-            // 
-            this.btn_Help.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Help.Location = new System.Drawing.Point(764, 80);
-            this.btn_Help.Name = "btn_Help";
-            this.btn_Help.Size = new System.Drawing.Size(40, 40);
-            this.btn_Help.TabIndex = 6;
-            this.btn_Help.Text = "?";
-            this.toolTip.SetToolTip(this.btn_Help, "Překvápko...");
-            this.btn_Help.UseVisualStyleBackColor = true;
-            this.btn_Help.Click += new System.EventHandler(this.btn_Help_Click);
             // 
             // dataGridView_ProductAttributes
             // 
@@ -150,7 +144,7 @@ namespace TableHelperApp
             this.rtxt_ProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rtxt_ProductName.Location = new System.Drawing.Point(12, 80);
             this.rtxt_ProductName.Name = "rtxt_ProductName";
-            this.rtxt_ProductName.Size = new System.Drawing.Size(746, 40);
+            this.rtxt_ProductName.Size = new System.Drawing.Size(787, 40);
             this.rtxt_ProductName.TabIndex = 0;
             this.rtxt_ProductName.Text = "";
             // 
@@ -202,41 +196,6 @@ namespace TableHelperApp
             this.gbox_AutoComplete.TabStop = false;
             this.gbox_AutoComplete.Text = "Nastavení AutoComplete";
             // 
-            // btn_Copy
-            // 
-            this.btn_Copy.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btn_Copy.Image = global::TableHelperApp.Properties.Resources.Editing_Copy_icon;
-            this.btn_Copy.Location = new System.Drawing.Point(283, 671);
-            this.btn_Copy.Name = "btn_Copy";
-            this.btn_Copy.Size = new System.Drawing.Size(281, 68);
-            this.btn_Copy.TabIndex = 4;
-            this.btn_Copy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip.SetToolTip(this.btn_Copy, "Kopírovat");
-            this.btn_Copy.UseVisualStyleBackColor = true;
-            this.btn_Copy.Click += new System.EventHandler(this.btn_Copy_Click);
-            // 
-            // btn_ClearAll
-            // 
-            this.btn_ClearAll.Image = global::TableHelperApp.Properties.Resources.Programming_Delete_Property_icon;
-            this.btn_ClearAll.Location = new System.Drawing.Point(22, 661);
-            this.btn_ClearAll.Name = "btn_ClearAll";
-            this.btn_ClearAll.Size = new System.Drawing.Size(90, 90);
-            this.btn_ClearAll.TabIndex = 11;
-            this.toolTip.SetToolTip(this.btn_ClearAll, "Vyčistit vše");
-            this.btn_ClearAll.UseVisualStyleBackColor = true;
-            this.btn_ClearAll.Click += new System.EventHandler(this.btn_ClearAll_Click);
-            // 
-            // btn_WebBrowser
-            // 
-            this.btn_WebBrowser.Image = global::TableHelperApp.Properties.Resources.Apps_internet_web_browser_icon;
-            this.btn_WebBrowser.Location = new System.Drawing.Point(720, 660);
-            this.btn_WebBrowser.Name = "btn_WebBrowser";
-            this.btn_WebBrowser.Size = new System.Drawing.Size(90, 90);
-            this.btn_WebBrowser.TabIndex = 5;
-            this.toolTip.SetToolTip(this.btn_WebBrowser, "Webový náhled");
-            this.btn_WebBrowser.UseVisualStyleBackColor = true;
-            this.btn_WebBrowser.Click += new System.EventHandler(this.btn_WebBrowser_Click);
-            // 
             // btn_Import
             // 
             this.btn_Import.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -249,32 +208,121 @@ namespace TableHelperApp
             this.btn_Import.UseVisualStyleBackColor = false;
             this.btn_Import.Click += new System.EventHandler(this.btn_Import_Click);
             // 
+            // mainMenu
+            // 
+            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.mainMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu.Name = "mainMenu";
+            this.mainMenu.Size = new System.Drawing.Size(814, 24);
+            this.mainMenu.TabIndex = 13;
+            this.mainMenu.Text = "menuStrip1";
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tableStripMenuItem});
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.settingToolStripMenuItem.Text = "Nastavení";
+            // 
+            // tableStripMenuItem
+            // 
+            this.tableStripMenuItem.Name = "tableStripMenuItem";
+            this.tableStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tableStripMenuItem.Text = "Tabulka";
+            this.tableStripMenuItem.Click += new System.EventHandler(this.tableStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topSecretToolStripMenuItem,
+            this.versionToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.aboutToolStripMenuItem.Text = "O programu";
+            // 
+            // topSecretToolStripMenuItem
+            // 
+            this.topSecretToolStripMenuItem.Name = "topSecretToolStripMenuItem";
+            this.topSecretToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.topSecretToolStripMenuItem.Text = "Děsně tajný";
+            this.topSecretToolStripMenuItem.Click += new System.EventHandler(this.topSecretToolStripMenuItem_Click);
+            // 
+            // versionToolStripMenuItem
+            // 
+            this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
+            this.versionToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.versionToolStripMenuItem.Text = "Verze";
+            this.versionToolStripMenuItem.Click += new System.EventHandler(this.versionToolStripMenuItem_Click);
+            // 
+            // btn_Copy
+            // 
+            this.btn_Copy.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btn_Copy.Image = global::TableHelperApp.Properties.Resources.Editing_Copy_icon;
+            this.btn_Copy.Location = new System.Drawing.Point(113, 661);
+            this.btn_Copy.Name = "btn_Copy";
+            this.btn_Copy.Size = new System.Drawing.Size(596, 90);
+            this.btn_Copy.TabIndex = 4;
+            this.btn_Copy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip.SetToolTip(this.btn_Copy, "Kopírovat");
+            this.btn_Copy.UseVisualStyleBackColor = true;
+            this.btn_Copy.Click += new System.EventHandler(this.btn_Copy_Click);
+            // 
+            // btn_ClearAll
+            // 
+            this.btn_ClearAll.Image = global::TableHelperApp.Properties.Resources.Programming_Delete_Property_icon;
+            this.btn_ClearAll.Location = new System.Drawing.Point(17, 661);
+            this.btn_ClearAll.Name = "btn_ClearAll";
+            this.btn_ClearAll.Size = new System.Drawing.Size(90, 90);
+            this.btn_ClearAll.TabIndex = 11;
+            this.toolTip.SetToolTip(this.btn_ClearAll, "Vyčistit vše");
+            this.btn_ClearAll.UseVisualStyleBackColor = true;
+            this.btn_ClearAll.Click += new System.EventHandler(this.btn_ClearAll_Click);
+            // 
+            // btn_WebBrowser
+            // 
+            this.btn_WebBrowser.Image = global::TableHelperApp.Properties.Resources.Apps_internet_web_browser_icon;
+            this.btn_WebBrowser.Location = new System.Drawing.Point(714, 661);
+            this.btn_WebBrowser.Name = "btn_WebBrowser";
+            this.btn_WebBrowser.Size = new System.Drawing.Size(90, 90);
+            this.btn_WebBrowser.TabIndex = 5;
+            this.toolTip.SetToolTip(this.btn_WebBrowser, "Webový náhled");
+            this.btn_WebBrowser.UseVisualStyleBackColor = true;
+            this.btn_WebBrowser.Click += new System.EventHandler(this.btn_WebBrowser_Click);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btn_Copy;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 761);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(814, 761);
             this.Controls.Add(this.btn_Import);
             this.Controls.Add(this.btn_ClearAll);
             this.Controls.Add(this.gbox_AutoComplete);
             this.Controls.Add(this.btn_WebBrowser);
             this.Controls.Add(this.btn_Copy);
             this.Controls.Add(this.dataGridView_ProductAttributes);
-            this.Controls.Add(this.btn_Help);
             this.Controls.Add(this.l_productAttrib);
             this.Controls.Add(this.l_producDesr);
             this.Controls.Add(this.l_productName);
             this.Controls.Add(this.rtxt_ProductDescr);
             this.Controls.Add(this.rtxt_ProductName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.mainMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.mainMenu;
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tabletka";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductAttributes)).EndInit();
             this.gbox_AutoComplete.ResumeLayout(false);
             this.gbox_AutoComplete.PerformLayout();
+            this.mainMenu.ResumeLayout(false);
+            this.mainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -282,7 +330,6 @@ namespace TableHelperApp
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_Help;
         private System.Windows.Forms.DataGridView dataGridView_ProductAttributes;
         private System.Windows.Forms.Button btn_Copy;
         private System.Windows.Forms.Button btn_WebBrowser;
@@ -299,6 +346,12 @@ namespace TableHelperApp
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button btn_ClearAll;
         private System.Windows.Forms.Button btn_Import;
+        private System.Windows.Forms.MenuStrip mainMenu;
+        private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topSecretToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem versionToolStripMenuItem;
     }
 }
 

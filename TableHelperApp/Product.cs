@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,9 @@ namespace TableHelperApp
 {
     public class Product
     {
+        [DisplayName("Jméno atributu")]
         public string AttributeName { get; set; }
+        [DisplayName("Hodnota atributu")]
         public string AttributeValue { get; set; }
 
         public override string ToString()

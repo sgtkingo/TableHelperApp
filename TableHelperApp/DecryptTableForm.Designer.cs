@@ -145,14 +145,17 @@ namespace TableHelperApp
             // 
             // DecryptTableForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gbox_SplitType);
             this.Controls.Add(this.btn_OK);
             this.Controls.Add(this.richTextBox_Data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DecryptTableForm";
+            this.Opacity = 0.95D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Přímé vložení";
             this.Load += new System.EventHandler(this.DecryptTableForm_Load);
             this.Resize += new System.EventHandler(this.DecryptTableForm_Resize);

@@ -39,15 +39,6 @@ namespace TableHelperApp
         private void SetDataGrid()
         {
             dataGridView_ProductAttributes.RowTemplate.Height = 30;
-            try
-            {
-                dataGridView_ProductAttributes.Columns[nameof(Product.AttributeName)].HeaderText = "Jméno atributu";
-                dataGridView_ProductAttributes.Columns[nameof(Product.AttributeValue)].HeaderText = "Hodnota atributu";
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"\t(!) {this}: Problem: {ex.Message} | {ex.Source} ");
-            }
         }
 
         private void CreateHTMLFile()
@@ -96,11 +87,6 @@ namespace TableHelperApp
 
             var form = new HTMLViewer(ProperitiesManager.AbsoluteHTMLFilePath);
             form.ShowDialog();
-        }
-
-        private void btn_Help_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Snad ti to trošku ulehčí práci...<3", "Děsně tajný");
         }
 
         private void dataGridView_ProductAttributes_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -186,6 +172,24 @@ namespace TableHelperApp
                 }
             };
             form.ShowDialog();
+        }
+
+        //Menu
+        private void topSecretToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Snad ti to trošku ulehčí práci...<3", "Děsně tajný");
+        }
+
+        private void versionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new AboutBox();
+            form.ShowDialog(this);
+        }
+
+        private void tableStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new SettingsForm();
+            form.ShowDialog(this);
         }
     }
 }

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="TableHelperApp.exe" version="1.1.0.3" publicKeyToken="ae3e343bfcbdd23c" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Res\Fasticon-Database-Table-edit.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="TableHelperApp" version="1.2.1.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="TableHelperApp.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Možnosti manifestu UAC
+          Chcete-li změnit úroveň řízení uživatelských účtů v systému Windows, nahraďte 
+          uzel requestedExecutionLevel jedním z následujících.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Chcete-li využít virtualizaci souborů a registru pro zpětnou 
+         kompatibilitu, odstraňte uzel requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ControlModule_CShrapDLL.dll" size="18944">
+      <assemblyIdentity name="ControlModule_CShrapDLL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>lGQ2iTYfE4cY9E27Zb0o+i3NVYK7GecTPe2IsT4K4Gc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TableHelperApp.exe" size="366040">
+      <assemblyIdentity name="TableHelperApp" version="1.2.1.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>XwB0Yr1o5OQI1ndyuS6o2CJRG9vNgo4d5iCTQTkeruU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Res\Fasticon-Database-Table-edit.ico" size="161862">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+aJ48bCIXqaMUMKv/bkqFj65FSKxHcuwtxfI8a5W2Gs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="TableHelperApp.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=NTB-DELL-LATIDU\Kony" issuerKeyHash="ad379591a309d041ccd886c6ad47f8934db0961d" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>QRqo432tWpRZbctCzc/Lb1A7ubsUw+v+1N42L1agQ9c=</DigestValue></Reference></SignedInfo><SignatureValue>Ww2HgPw7QAqfQ1wnavxBASwmV1rLyTN8MI99PBpXE0ckrw5Mp8oCHGI1CqWDOcR4OAuy7uJNAl9hFi/3q1JFOUbh2kP4zS7zZXwUOqS2y6oALkD2sXdpvETUOhCPvgfBtPCENKJvJisEdmDm5YfiCk1smXlTjz3zTU/tmm2e+5w=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>oPnM2mc7zkbnU2THSAZBhQDDcac65YK3H/xpyFeXIVCioxlkMWgGqdxHGlrqLyoM6I9RAVr7RA9Wf0P++OPYgpkEIcgZKuOnqE//I1a6pAJaDDa2AqccbudnSvwj9ffUQr5l/ccxEgucwcrzlnTJ3czMPFXMvmMjUg7wUpgHjr0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d743a0562f36ded4feebc314bbb93b506fcbcfcd42cb6d59945aad7de3a81a41" Description="" Url=""><as:assemblyIdentity name="TableHelperApp.exe" version="1.1.0.3" publicKeyToken="ae3e343bfcbdd23c" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=NTB-DELL-LATIDU\Kony</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>8vBFo08yTyy6bHe/7zIPOPqmbOXeNWZDOJqJULrsaGs=</DigestValue></Reference></SignedInfo><SignatureValue>i3PyKi8hDH4Jwj58SZNJJ3XdsG1qEGkRPN6UMRTSeGfNDOPI0HTj7TCFI/lZ/lkSN4y1dFxCVsDnr/4N0EDjkrYoEPnWACIZ5S6LKvr/34VUijjFomLGWybbWlnB+cI6c7VpLhIZkBuQcJO3CihwOvr6N2ZgAmD9fs7ptSbKED4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>oPnM2mc7zkbnU2THSAZBhQDDcac65YK3H/xpyFeXIVCioxlkMWgGqdxHGlrqLyoM6I9RAVr7RA9Wf0P++OPYgpkEIcgZKuOnqE//I1a6pAJaDDa2AqccbudnSvwj9ffUQr5l/ccxEgucwcrzlnTJ3czMPFXMvmMjUg7wUpgHjr0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB6TCCAVKgAwIBAgIQYdfw2P3sqKNFMHItMhqCcjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDHigATgBUAEIALQBEAEUATABMAC0ATABBAFQASQBEAFUAXABLAG8AbgB5MB4XDTIxMTAxODIwMDkyMFoXDTIyMTAxOTAyMDkyMFowMzExMC8GA1UEAx4oAE4AVABCAC0ARABFAEwATAAtAEwAQQBUAEkARABVAFwASwBvAG4AeTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAoPnM2mc7zkbnU2THSAZBhQDDcac65YK3H/xpyFeXIVCioxlkMWgGqdxHGlrqLyoM6I9RAVr7RA9Wf0P++OPYgpkEIcgZKuOnqE//I1a6pAJaDDa2AqccbudnSvwj9ffUQr5l/ccxEgucwcrzlnTJ3czMPFXMvmMjUg7wUpgHjr0CAwEAATANBgkqhkiG9w0BAQsFAAOBgQA/ayitAZFzkfKaHE0PX4EAO/ADQrvhZ2qOafNDEHaNbdCxapo3R6e4eg3EDikoA7r62GiKjHe5PiCoTkBqCZAwWjcbMARUIJBmQrGhsWzceIQhpdKUbt1Y4YDzK0mF4ZjoLWLQioAlQZVYjwHogGcGKjj6saB7yrIwyB+/NNS3NA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

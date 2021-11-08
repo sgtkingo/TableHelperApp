@@ -44,8 +44,8 @@ namespace TableHelperApp
             Console.WriteLine($"(i)\t\t Updating collection...");
             foreach (var item in items)
             {
-                //Duplicate check
-                if(!Collection.Contains(item) && item!=string.Empty)
+                //Duplicate and empty strings check check
+                if(!Collection.Contains(item) && !string.IsNullOrWhiteSpace(item))
                     Collection.Add(item);
             }
             if(saveToFile)
@@ -59,8 +59,8 @@ namespace TableHelperApp
             Console.WriteLine($"(i)\t\t Updating collection...");
             foreach (var item in items)
             {
-                //Duplicate check
-                if (!Collection.Contains(item) && item != string.Empty)
+                //Duplicate and empty strings check check
+                if (!Collection.Contains(item) && !string.IsNullOrWhiteSpace(item))
                     Collection.Add(item);
             }
             if (saveToFile)
@@ -82,7 +82,7 @@ namespace TableHelperApp
             foreach (var item in Collection)
             {
                 //Null or empty chceck
-                if ( !string.IsNullOrEmpty(item.ToString()) )
+                if ( !string.IsNullOrWhiteSpace(item.ToString()) )
                     stringBuilder.AppendLine(item.ToString());
             }
             FileManager.SaveFile(_collectionFilePath, stringBuilder.ToString());
@@ -95,7 +95,7 @@ namespace TableHelperApp
                 foreach (var item in Collection)
                 {
                     //Null or empty chceck
-                    if (!string.IsNullOrEmpty(item.ToString()))
+                    if (!string.IsNullOrWhiteSpace(item.ToString()))
                         stringBuilder.AppendLine(item.ToString());
                 }
                 FileManager.SaveFile(_collectionFilePath, stringBuilder.ToString());
@@ -105,7 +105,7 @@ namespace TableHelperApp
         public static void ClearCollection(bool onlyLocal)
         {
             Collection.Clear();
-            if( !onlyLocal)
+            if( !onlyLocal )
             {
                 File.Delete(_collectionFilePath);
             }

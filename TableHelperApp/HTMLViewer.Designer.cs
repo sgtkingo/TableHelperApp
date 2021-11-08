@@ -51,6 +51,7 @@ namespace TableHelperApp
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HTMLViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Náhled HTML";
             this.ResumeLayout(false);
 
